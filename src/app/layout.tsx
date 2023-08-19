@@ -20,6 +20,8 @@ export default function RootLayout({
         className={clsx(inter.className, 'w-screen h-screen flex flex-col')}
       >
         {children}
+        <div id='modal-root' />
+        <div id='toast-root' />
       </body>
     </html>
   );
