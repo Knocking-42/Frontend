@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 const useClickOutside = (onClickOutside: () => void) => {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
