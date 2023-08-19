@@ -1,15 +1,16 @@
 import { cn } from '@/_shared/utils/hooks/cn';
+import { ToastType } from '@/_shared/types/toast';
 
 interface Props {
   text: string;
-  type: 'common' | 'success' | 'error' | 'warning';
+  type: ToastType;
   onClose: () => void;
 }
 
 export const Toast = ({ text, type, onClose }: Props) => {
   return (
     <li
-      className={cn('px-5 py-2', {
+      className={cn('px-5 py-2 animate-fade-in', {
         'bg-slate-300': type == 'common', // TODO: design wip
         'bg-success': type == 'success',
         'bg-danger': type == 'error',
