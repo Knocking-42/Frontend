@@ -1,17 +1,16 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import { Toast } from './Toast';
-import { ToastData } from '@/_shared/types/toast';
-import { useEffect, useRef, useState } from 'react';
+import { ToastData } from './toast.d';
 
 interface Props {
   toastList: ToastData[];
-  onRemoveToast: (index: number) => void;
 }
 
-export const ToastList = ({ toastList, onRemoveToast }: Props) => {
+export const ToastList = ({ toastList }: Props) => {
   const [element, setElement] = useState<HTMLElement | null>(null);
   const ref = useRef(null);
 
@@ -23,7 +22,7 @@ export const ToastList = ({ toastList, onRemoveToast }: Props) => {
 
   return ReactDOM.createPortal(
     <ul
-      className='fixed top-0 right-0  w-fit h-fit max-h-full'
+      className='fixed top-0 right-0 flex flex-col-reverse w-fit h-fit max-h-full'
       ref={ref}
     >
       {toastList.map((toast) => (
