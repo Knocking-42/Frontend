@@ -1,21 +1,29 @@
 'use client';
 
+import { useState } from 'react';
+
 import { ToastList } from '@/_shared/components/Toast/ToastList';
 import { ToastData } from '@/_shared/types/toast';
-import { useState } from 'react';
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const [toasts, setToasts] = useState<ToastData[]>([]);
-  const [autoClose, setAutoClose] = useState(true);
-  const [autoCloseDuration, setAutoCloseDuration] = useState(5);
+  const [toastID, setToastID] = useState<number>(0);
 
   function handleClickButton() {
-    setToasts((prev) => [...prev, { text: 'test', type: 'common' }]);
+    const id = toastID;
+    setToasts((prev) => [
+      ...prev,
+      { id: toastID, text: `test-${toastID} `, type: 'common' },
+    ]);
+    setToastID((prev) => (prev === 100 ? 0 : prev + 1));
+    setTimeout(() => {
+      setToasts((prev) => prev.filter((toast) => toast.id !== id));
+    }, 1000);
   }
 
-  function handleRemoveToast(index: number) {
-    setToasts((prev) => prev.filter((_, i) => i !== index));
+  function handleRemoveToast(id: number) {
+    setToasts((prev) => prev.filter((toast) => toast.id !== id));
   }
 
   return (
