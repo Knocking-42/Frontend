@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 import { Toast } from './Toast';
 import { ToastData } from '@/_shared/types/toast';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface Props {
   toastList: ToastData[];
@@ -12,22 +12,25 @@ interface Props {
 }
 
 export const ToastList = ({ toastList, onRemoveToast }: Props) => {
-  const element = document.getElementById('toast-root');
+  const [element, setElement] = useState<HTMLElement | null>(null);
   const ref = useRef(null);
 
-  if (!element) return null;
+  useEffect(() => {
+    setElement(document.getElementById('toast-root'));
+  }, []);
+
+  if (!element) return <></>;
 
   return ReactDOM.createPortal(
     <ul
       className='fixed top-0 right-0  w-fit h-fit max-h-full'
       ref={ref}
     >
-      {toastList.map((toast, index) => (
+      {toastList.map((toast) => (
         <Toast
-          key={`toast-${index}`}
+          key={`toast-${toast.id}`}
           type={toast.type}
           text={toast.text}
-          onClose={() => onRemoveToast(index)}
         />
       ))}
     </ul>,
