@@ -4,10 +4,9 @@ import { ToastType } from '@/_shared/types/toast';
 interface Props {
   text: string;
   type: ToastType;
-  onClose: () => void;
 }
 
-export const Toast = ({ text, type, onClose }: Props) => {
+export const Toast = ({ text, type }: Props) => {
   return (
     <li
       className={cn('px-5 py-2 animate-fade-in', {
@@ -24,12 +23,6 @@ export const Toast = ({ text, type, onClose }: Props) => {
       >
         {text}
       </span>
-      <button
-        type='button'
-        onClick={onClose}
-      >
-        {/* TODO: X Icon */}X
-      </button>
     </li>
   );
 };
