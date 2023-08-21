@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { cva } from 'class-variance-authority';
 
-import { cn } from '@/_shared/utils/hooks/cn';
 import { ToastType } from './toast.d';
 import { TOAST_DURATION } from './constants';
 
@@ -10,6 +10,32 @@ interface Props {
   text: string;
   type: ToastType;
 }
+
+const ToastOuterVariants = cva('px-5 py-2 w-60', {
+  variants: {
+    intents: {
+      common: 'bg-slate-300',
+      success: 'bg-success',
+      error: 'bg-danger',
+      warning: 'bg-warning',
+    },
+    animations: {
+      fadeInLeftRight: 'animate-fade-in-left-right',
+      fadeOutRightLeft: 'animate-fade-out-right-left',
+    },
+  },
+});
+
+const ToastInnerVariants = cva('select-none', {
+  variants: {
+    intents: {
+      common: 'text-black',
+      success: 'text-white',
+      error: 'text-white',
+      warning: 'text-black',
+    },
+  },
+});
 
 export const Toast = ({ text, type }: Props) => {
   const [isRemoving, setIsRemoving] = useState(false);
@@ -22,18 +48,14 @@ export const Toast = ({ text, type }: Props) => {
 
   return (
     <li
-      className={cn('px-5 py-2 w-60', {
-        'bg-slate-300': type == 'common', // TODO: design wip
-        'bg-success': type == 'success',
-        'bg-danger': type == 'error',
-        'bg-warning': type == 'warning',
-        'animate-fade-in-left-right': !isRemoving,
-        'animate-fade-out-right-left': isRemoving,
+      className={ToastOuterVariants({
+        intents: type,
+        animations: isRemoving ? 'fadeOutRightLeft' : 'fadeInLeftRight',
       })}
     >
       <span
-        className={cn('text-white select-none', {
-          'text-black': type == 'warning' || type == 'common',
+        className={ToastInnerVariants({
+          intents: type,
         })}
       >
         {text}
