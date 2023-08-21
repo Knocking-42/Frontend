@@ -1,5 +1,4 @@
 import { ModalWrapper } from './ModalWrapper';
-import { cn } from '@/_shared/utils/cn';
 
 interface Props {
   text: string;
@@ -23,7 +22,7 @@ export const Modal = ({
       <div className='px-5 py-3 w-80 text-center'>
         <span>{text}</span>
       </div>
-      <div className={cn('flex flex-row')}>
+      <div className='flex flex-row'>
         {buttonSecondaryText && (
           <button
             onClick={onClickSecondary}
