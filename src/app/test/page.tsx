@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div>
       <button onClick={handleClickButton}>Open</button>
-      {toasts.length > 0 && <ToastList toastList={toasts} />}
+      <ToastList toastList={toasts} />
     </div>
   );
 }

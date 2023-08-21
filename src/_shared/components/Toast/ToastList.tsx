@@ -18,7 +18,7 @@ export const ToastList = ({ toastList }: Props) => {
     setElement(document.getElementById('toast-root'));
   }, []);
 
-  if (!element) return <></>;
+  if (!element || toastList.length <= 0) return <></>;
 
   return ReactDOM.createPortal(
     <ul
