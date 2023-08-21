@@ -20,27 +20,25 @@ export const Modal = ({
 }: Props) => {
   return (
     <ModalWrapper onClickOutside={onClickOutside}>
-      <>
-        <div className='px-5 py-3 w-80 text-center'>
-          <span>{text}</span>
-        </div>
-        <div className={cn('flex flex-row')}>
-          {buttonSecondaryText && (
-            <button
-              onClick={onClickSecondary}
-              className='flex-1 bg-secondary py-1'
-            >
-              {buttonSecondaryText}
-            </button>
-          )}
+      <div className='px-5 py-3 w-80 text-center'>
+        <span>{text}</span>
+      </div>
+      <div className={cn('flex flex-row')}>
+        {buttonSecondaryText && (
           <button
-            onClick={onClickPrimary}
-            className='flex-1 bg-primary py-1'
+            onClick={onClickSecondary}
+            className='flex-1 bg-secondary py-1'
           >
-            {buttonPrimaryText}
+            {buttonSecondaryText}
           </button>
-        </div>
-      </>
+        )}
+        <button
+          onClick={onClickPrimary}
+          className='flex-1 bg-primary py-1'
+        >
+          {buttonPrimaryText}
+        </button>
+      </div>
     </ModalWrapper>
   );
 };
