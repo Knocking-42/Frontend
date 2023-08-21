@@ -25,11 +25,11 @@ export const ToastList = ({ toastList }: Props) => {
       className='fixed top-0 right-0 flex flex-col-reverse w-fit h-fit max-h-full'
       ref={ref}
     >
-      {toastList.map((toast) => (
+      {toastList.map(({ id, type, text }) => (
         <Toast
-          key={`toast-${toast.id}`}
-          type={toast.type}
-          text={toast.text}
+          key={`toast-${id}`}
+          type={type}
+          text={text}
         />
       ))}
     </ul>,
