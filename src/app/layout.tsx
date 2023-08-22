@@ -20,6 +20,7 @@ export default function RootLayout({
         className={clsx(inter.className, 'w-screen h-screen flex flex-col')}
       >
         {children}
+        <div id='drawer-root' />
       </body>
     </html>
   );
