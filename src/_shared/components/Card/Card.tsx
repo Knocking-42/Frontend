@@ -1,3 +1,4 @@
+import { cn } from '@/_shared/utils/hooks/cn';
 import { cva } from 'class-variance-authority';
 
 interface CardProps extends React.PropsWithChildren {
@@ -6,7 +7,7 @@ interface CardProps extends React.PropsWithChildren {
 }
 
 const cardVariants = cva(
-  ['flex flex-col', 'items-center justify-center', 'p-4 m-4'],
+  ['flex flex-col', 'items-center justify-center', 'w-auto h-auto', 'p-4 m-4'],
   {
     variants: {
       intents: {
@@ -22,13 +23,12 @@ const cardVariants = cva(
     },
     defaultVariants: {
       intents: 'default',
-      size: 'md',
     },
   },
 );
 
 function Card(props: CardProps) {
-  const { children, onClick, size = 'md' } = props;
+  const { children, onClick, size } = props;
   return (
     <section
       className={cardVariants({ size })}
