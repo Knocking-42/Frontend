@@ -17,6 +17,30 @@ const config: Config = {
         success: '#22c55e',
         warning: '#facc15',
       },
+      keyframes: {
+        'slide-right': {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        'slide-left': {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        'slide-down': {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        'slide-up': {
+          '0%': { transform: 'translateY(100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+      },
+      animation: {
+        'slide-right': 'slide-right 0.5s ease-in-out',
+        'slide-left': 'slide-left 0.5s ease-in-out',
+        'slide-down': 'slide-down 0.5s ease-in-out',
+        'slide-up': 'slide-up 0.5s ease-in-out',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
