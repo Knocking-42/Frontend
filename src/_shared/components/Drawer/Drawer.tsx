@@ -2,6 +2,7 @@
 
 import { cva } from 'class-variance-authority';
 import { PropsWithChildren, useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
 import { twMerge } from 'tailwind-merge';
 
 import useClickOutside from '@/_shared/utils/hooks/useClickOutside';
@@ -73,7 +74,7 @@ export const Drawer = ({
 
   if (!element || !isOpen) return <></>;
 
-  return (
+  return ReactDOM.createPortal(
     <DrawerContext.Provider value={{ onClose: handleClose }}>
       {/* TODO: useMemo */}
       <div
@@ -96,6 +97,7 @@ export const Drawer = ({
           </div>
         )}
       </div>
-    </DrawerContext.Provider>
+    </DrawerContext.Provider>,
+    element,
   );
 };
