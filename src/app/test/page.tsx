@@ -2,7 +2,12 @@
 
 import { useState } from 'react';
 
-import { Drawer, DrawerCloseButton } from '@/_shared/components/Drawer';
+import {
+  Drawer,
+  DrawerCloseButton,
+  DrawerHeader,
+  DrawerSection,
+} from '@/_shared/components/Drawer';
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +26,14 @@ export default function Home() {
         onClose={() => setIsOpen(false)}
       >
         <DrawerCloseButton />
+        <DrawerHeader>안녕하세요</DrawerHeader>
+        <DrawerSection>
+          <input
+            type='text'
+            placeholder='값 입력'
+          />
+          <button type='button'>버튼</button>
+        </DrawerSection>
       </Drawer>
     </main>
   );

@@ -6,7 +6,7 @@ import { DrawerContext } from './DrawerContext';
 export const DrawerCloseButton = () => {
   const { onClose } = useContext(DrawerContext);
   return (
-    <div className='w-full flex flex-row items-center justify-end'>
+    <div className='px-4 py-2 w-full flex flex-row items-center justify-end'>
       <button
         type='button'
         onClick={onClose}
