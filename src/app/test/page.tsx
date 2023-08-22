@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { Drawer } from '@/_shared/components/Drawer';
+import { Drawer, DrawerCloseButton } from '@/_shared/components/Drawer';
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,10 +15,13 @@ export default function Home() {
         open
       </button>
       <Drawer
-        placement='left'
+        placement='right'
         size='md'
         isOpen={isOpen}
-      />
+        onClose={() => setIsOpen(false)}
+      >
+        <DrawerCloseButton />
+      </Drawer>
     </main>
   );
 }
