@@ -6,12 +6,14 @@ import { DrawerContext } from './DrawerContext';
 export const DrawerCloseButton = () => {
   const { onClose } = useContext(DrawerContext);
   return (
-    <button
-      type='button'
-      onClick={onClose}
-      className='w-4 h-4'
-    >
-      <XIcon />
-    </button>
+    <div className='w-full flex flex-row items-center justify-end'>
+      <button
+        type='button'
+        onClick={onClose}
+        className='w-8 h-8'
+      >
+        <XIcon className='w-8 h-8 fill-black' />
+      </button>
+    </div>
   );
 };
