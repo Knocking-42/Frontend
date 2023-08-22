@@ -1,7 +1,8 @@
 import clsx from 'clsx';
-import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+
+import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export default function RootLayout({
         className={clsx(inter.className, 'w-screen h-screen flex flex-col')}
       >
         {children}
+        <div id='toast-root' />
       </body>
     </html>
   );
