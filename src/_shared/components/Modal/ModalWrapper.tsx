@@ -1,10 +1,9 @@
-import { ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 import ReactDOM from 'react-dom';
 
 import useClickOutside from '@/_shared/utils/hooks/useClickOutside';
 
-interface Props {
-  children: ReactNode;
+interface Props extends PropsWithChildren {
   onClickOutside: () => void;
 }
 
