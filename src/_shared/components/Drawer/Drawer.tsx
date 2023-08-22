@@ -77,7 +77,7 @@ export const Drawer = ({
   return ReactDOM.createPortal(
     <DrawerContext.Provider value={{ onClose: handleClose }}>
       {/* TODO: useMemo */}
-      <div
+      <aside
         className={DrawerWrapperVariants({
           closing: isClosing ? true : 'none',
         })}
@@ -96,7 +96,7 @@ export const Drawer = ({
             {children}
           </div>
         )}
-      </div>
+      </aside>
     </DrawerContext.Provider>,
     element,
   );
