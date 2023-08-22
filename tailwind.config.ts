@@ -34,6 +34,22 @@ const config: Config = {
           '0%': { transform: 'translateY(100%)' },
           '100%': { transform: 'translateX(0)' },
         },
+        'slide-out-right': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+        'slide-out-left': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+        'slide-out-down': {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+        'slide-out-up': {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
         'fade-in': {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
@@ -60,6 +76,10 @@ const config: Config = {
         'slide-left': 'slide-left 0.2s ease-in',
         'slide-down': 'slide-down 0.2s ease-in',
         'slide-up': 'slide-up 0.2s ease-in',
+        'slide-out-right': 'slide-out-right 0.2s ease-in',
+        'slide-out-left': 'slide-out-left 0.2s ease-in',
+        'slide-out-down': 'slide-out-down 0.2s ease-in',
+        'slide-out-up': 'slide-out-up 0.2s ease-in',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
