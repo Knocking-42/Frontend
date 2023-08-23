@@ -7,7 +7,13 @@ interface CardProps extends React.PropsWithChildren {
 }
 
 const cardVariants = cva(
-  ['flex flex-col', 'items-center justify-center', 'w-auto h-auto', 'p-4 m-4'],
+  [
+    'flex flex-col',
+    'items-center justify-center',
+    'w-auto h-auto',
+    'p-4 m-4',
+    'hover:transition hover:duration-300 hover:ease-in-out',
+  ],
   {
     variants: {
       intents: {
