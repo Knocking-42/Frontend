@@ -1,14 +1,16 @@
 'use client';
 
-import { ToastList, useToast } from '@/_shared/components/Toast';
+import { FloatingActionButton } from '@/_shared/components/FloatingActionButton';
 
 export default function Home() {
-  const { toasts, handleClickButton } = useToast();
-
   return (
-    <div>
-      <button onClick={handleClickButton}>Open</button>
-      <ToastList toastList={toasts} />
+    <div className=''>
+      <FloatingActionButton
+        onClick={() => {}}
+        size='sm'
+      >
+        +
+      </FloatingActionButton>
     </div>
   );
 }
