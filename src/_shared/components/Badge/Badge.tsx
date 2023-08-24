@@ -7,7 +7,7 @@ interface Props extends PropsWithChildren {
 }
 
 const BadgeVariants = cva(
-  'absolute top-0 right-0 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium',
+  'absolute top-0 right-0 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium select-none',
   {
     variants: {
       type: {
