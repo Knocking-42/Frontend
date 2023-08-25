@@ -19,7 +19,7 @@ export async function httpClient({ path, method, body, headers }: Props) {
       },
       credentials: 'include',
     });
-    const data = await response.json();
+    const data = await response.text();
     return data;
   } catch (e) {
     console.log(e);

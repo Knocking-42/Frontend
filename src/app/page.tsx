@@ -5,6 +5,7 @@ import { NavBar } from '@/_shared/components/NavBar';
 import { LandingLayout } from '@/_shared/components/LandingLayout';
 import { httpClient } from '@/_shared/services/httpClient';
 
+export const dynamic = 'force-dynamic'; // TODO: force-dynamic 말고 다른 방안 있는지 생각
 export default async function Home() {
   const data = await httpClient({
     path: '/auth/test',
