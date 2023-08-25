@@ -1,41 +1,35 @@
-import Image from 'next/image';
+import Link from 'next/link';
+import { cookies } from 'next/headers';
 
-export default function Home() {
+import { NavBar } from '@/_shared/components/NavBar';
+import { LandingLayout } from '@/_shared/components/LandingLayout';
+import { httpClient } from '@/_shared/services/httpClient';
+
+export const dynamic = 'force-dynamic'; // TODO: force-dynamic 말고 다른 방안 있는지 생각
+export default async function Home() {
+  const data = await httpClient({
+    path: '/auth/test',
+    method: 'GET',
+  });
+  console.log(data);
+
   return (
     <>
-      {/* TODO: NavBar */}
-      <nav className='bg-white flex justify-between items-center px-12 py-4'>
-        <span>Knocking</span>
-        <button
-          type='button'
-          className=''
-        >
-          <span>로그인</span>
-        </button>
-      </nav>
-      <main className='flex flex-col w-screen h-full relative'>
-        <Image
-          src='/knocking_bg.png'
-          alt='knocking background'
-          width={1920}
-          height={1080}
-          className='w-full h-full object-cover'
-        />
-        <div className='absolute top-0 left-0 w-full h-full bg-black bg-opacity-30 flex flex-col justify-center items-center'>
-          <div className='flex flex-col justify-center items-center bg-white px-20 py-12 rounded-md'>
-            <span className='text-text-light-primary text-xl'>
-              Knocking과 함께 더 쉬워진 이력서 쓰러가기
-            </span>
-            <button
-              type='button'
-              className='bg-primary text-white w-40 h-12 mt-10 rounded-md hover:bg-secondary transition-colors'
-            >
-              {/* TODO: Button */}
-              <span>로그인</span>
-            </button>
-          </div>
-        </div>
-      </main>
+      <NavBar isLogin={false} />
+      <LandingLayout>
+        <span className='text-text-light-primary text-xl'>
+          Knocking과 함께 더 쉬워진 이력서 쓰러가기
+        </span>
+        <Link href='/login'>
+          <button
+            type='button'
+            className='bg-primary text-white w-40 h-12 mt-10 rounded-md hover:bg-secondary transition-colors'
+          >
+            {/* TODO: Button */}
+            <span>로그인</span>
+          </button>
+        </Link>
+      </LandingLayout>
     </>
   );
 }
