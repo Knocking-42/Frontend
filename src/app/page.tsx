@@ -1,8 +1,17 @@
+import Link from 'next/link';
+import { cookies } from 'next/headers';
+
 import { NavBar } from '@/_shared/components/NavBar';
 import { LandingLayout } from '@/_shared/components/LandingLayout';
-import Link from 'next/link';
+import { httpClient } from '@/_shared/services/httpClient';
 
-export default function Home() {
+export default async function Home() {
+  const data = await httpClient({
+    path: '/auth/test',
+    method: 'GET',
+  });
+  console.log(data);
+
   return (
     <>
       <NavBar isLogin={false} />

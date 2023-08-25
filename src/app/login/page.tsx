@@ -13,7 +13,7 @@ export default function Login() {
             alt='google login button'
             width={200}
             height={120}
-            className='mb-5'
+            className='h-auto mb-5'
           />
         </a>
         <a href={process.env.NEXT_PUBLIC_SERVER_URL + '/auth/kakao'}>
@@ -22,6 +22,7 @@ export default function Login() {
             alt='kakao login button'
             width={200}
             height={120}
+            className='h-auto'
           />
         </a>
       </LandingLayout>

@@ -7,6 +7,7 @@ export const LandingLayout = ({ children }: PropsWithChildren) => {
       <Image
         src='/knocking_bg.png'
         alt='knocking background'
+        priority
         width={1920}
         height={1080}
         className='w-full h-full object-cover'

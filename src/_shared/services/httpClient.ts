@@ -1,3 +1,5 @@
+import { cookies } from 'next/headers';
+
 interface Props {
   path: string;
   method: 'GET' | 'POST' | 'PUT' | 'DELETE';
@@ -6,16 +8,20 @@ interface Props {
 }
 
 export async function httpClient({ path, method, body, headers }: Props) {
-  const response = await fetch(process.env.NEXT_PUBLIC_SERVER_URL + path, {
-    method,
-    body,
-    headers: {
-      ...headers,
-      'Content-Type': 'application/json;charset=utf-8',
-    },
-    credentials: 'include',
-  });
-
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(process.env.NEXT_PUBLIC_SERVER_URL + path, {
+      method,
+      body,
+      headers: {
+        ...headers,
+        Cookie: cookies().toString(),
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      credentials: 'include',
+    });
+    const data = await response.json();
+    return data;
+  } catch (e) {
+    console.log(e);
+  }
 }
