@@ -2,7 +2,7 @@ import { LandingLayout } from '@/_shared/components/LandingLayout';
 import { NavBar } from '@/_shared/components/NavBar';
 import Image from 'next/image';
 
-export default function Home() {
+export default function Login() {
   return (
     <>
       <NavBar isLogin={false} />
