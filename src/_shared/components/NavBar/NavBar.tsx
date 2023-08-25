@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 interface Props {
   isLogin: boolean;
 }
@@ -5,7 +7,9 @@ interface Props {
 export const NavBar = ({ isLogin }: Props) => {
   return (
     <nav className='bg-white flex justify-between items-center px-12 py-4'>
-      <span>Knocking</span>
+      <Link href='/'>
+        <span>Knocking</span>
+      </Link>
       {isLogin ? (
         <div className='flex flex-row items-center'>
           <button type='button'>내 이력서</button>
