@@ -14,7 +14,6 @@ export async function httpClient({ path, method, body, headers }: Props) {
       body,
       headers: {
         ...headers,
-        Cookie: cookies().toString(),
         'Content-Type': 'application/json;charset=utf-8',
       },
       credentials: 'include',
