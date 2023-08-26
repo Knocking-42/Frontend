@@ -1,4 +1,4 @@
-import { cn } from '@/_shared/utils/hooks/cn';
+import { cn } from '@/_shared/utils/cn';
 import { cva } from 'class-variance-authority';
 
 interface FlexProps extends React.PropsWithChildren {
