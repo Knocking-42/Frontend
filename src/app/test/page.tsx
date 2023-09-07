@@ -1,36 +1,40 @@
 'use client';
 
-import { FloatingActionButton } from '@/_shared/components/FloatingActionButton';
-import { Badge } from '@/_shared/components/Badge/Badge';
-import { ToastList, useToast } from '@/_shared/components/Toast';
+import { useState } from 'react';
+
+import {
+  Drawer,
+  DrawerCloseButton,
+  DrawerHeader,
+  DrawerSection,
+} from '@/_shared/components/Drawer';
 
 export default function Home() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className=''>
-      <FloatingActionButton
-        onClick={() => {}}
-        size='sm'
+    <main className='flex flex-col w-screen h-full relative'>
+      <button
+        type='button'
+        onClick={() => setIsOpen(true)}
       >
-        +
-      </FloatingActionButton>
-      <Badge
-        text='1'
-        type='common'
+        open
+      </button>
+      <Drawer
+        placement='right'
+        size='md'
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
       >
-        hello
-      </Badge>
-      <Badge
-        text='1'
-        type='green'
-      >
-        hello
-      </Badge>
-      <Badge
-        text='1'
-        type='red'
-      >
-        hello
-      </Badge>
-    </div>
+        <DrawerCloseButton />
+        <DrawerHeader>안녕하세요</DrawerHeader>
+        <DrawerSection>
+          <input
+            type='text'
+            placeholder='값 입력'
+          />
+          <button type='button'>버튼</button>
+        </DrawerSection>
+      </Drawer>
+    </main>
   );
 }
